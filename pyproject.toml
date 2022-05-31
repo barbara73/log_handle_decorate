@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "logger"
+name = "log-handler"
 version = "0.1.0"
 description = "Log decorator and handler for easy function logging."
 authors = ["Barbara Jesacher"]
