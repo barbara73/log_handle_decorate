@@ -1,9 +1,18 @@
+"""
+LogHandler for chaining log levels.
+"""
 import json
+import uuid
 from logging import basicConfig, INFO, getLogger
 from logging import getLogRecordFactory, setLogRecordFactory
 from pathlib import Path
 
-from _paths import PATH_LOG, EXPORT_ID
+PATH_SRC = Path(__file__).parents[1]
+PATH_LOG = PATH_SRC / 'logs'
+
+
+# unique export id
+EXPORT_ID = uuid.uuid4()
 
 
 basicConfig(format=json.dumps({'created_at': '%(asctime)s',
@@ -88,9 +97,9 @@ class DebugHandler(IHandler):
 
 
 class DefaultHandler(IHandler):
-    def __init__(self):
-        super().__init__()
-
+    """
+    Default logger gives warning for unsupported message type.
+    """
     def handle(self, function_name: str, message: str) -> None:
         self.logger.warning(f'WARNING - unsupported message type - function: {function_name}, ')
 

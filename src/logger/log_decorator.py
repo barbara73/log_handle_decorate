@@ -1,6 +1,5 @@
 """
 LogDecorator for logging errors of try-except handling.
-The errors are written to a logfile and then mapped to logging DB.
 """
 from functools import wraps
 
@@ -84,21 +83,3 @@ class LogDecorator:
 # coroutine = custom_search(es, "index", {"query": {"match_all": {}}})
 # loop.run_until_complete(coroutine)
 
-if __name__ == '__main__':
-
-    @LogDecorator('INFO - a message')
-    def func(a, b, c):
-        return a + b + c
-
-
-    @LogDecorator('INFO - another message')
-    def crash(a, b):
-        raise ValueError(str(a))
-
-
-    try:
-        crash(1, 3)
-    except:
-        pass
-
-    func(1, 2, 3)

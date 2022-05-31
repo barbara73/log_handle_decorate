@@ -1,7 +1,3 @@
-from logging import INFO
-
-from log_handler import Logger
-
 #
 # def test_logger(caplog):
 #     func_under_test()
