@@ -5,13 +5,10 @@ import json
 import uuid
 from logging import basicConfig, INFO, getLogger
 from logging import getLogRecordFactory, setLogRecordFactory
-from pathlib import Path
-
-PATH_SRC = Path(__file__).parents[1]
-PATH_LOG = PATH_SRC / 'logs'
-
 
 # unique export id
+from .options import Options
+
 EXPORT_ID = uuid.uuid4()
 
 
@@ -22,8 +19,8 @@ basicConfig(format=json.dumps({'created_at': '%(asctime)s',
                                'export_id': '%(export_id)s',
                                'log_message': '%(message)s'}
                               ),
-            level=INFO,
-            filename=Path(PATH_LOG, 'rdf_logging.log'),
+            level='DEBUG',
+            filename=Options.file_name,
             )
 old_factory = getLogRecordFactory()
 
@@ -45,7 +42,7 @@ class IHandler:
     Parent handler for different log levels.
     """
     def __init__(self):
-        self.logger = getLogger('log_db_connector')
+        self.logger = getLogger(Options.logger_name)
 
     def handle(self, function_name, message):
         pass

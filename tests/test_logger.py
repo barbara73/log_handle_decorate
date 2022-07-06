@@ -1,7 +1,13 @@
-#
-# def test_logger(caplog):
-#     func_under_test()
-#     caplog.set_level(INFO)
-#     log = Logger()
-#     assert str(log.log('a_function', 'a_message')) in caplog.text
+from src.logdecoratorandhandler.log_decorator import LogDecorator
+from src.logdecoratorandhandler.options import Options
 
+Options.log_level = 'DEBUG'
+
+
+@LogDecorator('DEBUG - test a function')
+def a_function():
+    return
+
+
+if __name__ == '__main__':
+    a_function()

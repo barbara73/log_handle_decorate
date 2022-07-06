@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "log-handler"
-version = "0.1.0"
-description = "Log decorator and handler for easy function logging."
-authors = ["Barbara Jesacher"]
+name = "logdecoratorandhandler"
+version = "0.1.5"
+description = "Log decorator and handler for logging functions easily"
+authors = ["barbara73 <barbara.jesacher@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
