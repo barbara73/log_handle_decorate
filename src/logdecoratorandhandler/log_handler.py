@@ -19,7 +19,7 @@ basicConfig(format=json.dumps({'created_at': '%(asctime)s',
                                'export_id': '%(export_id)s',
                                'log_message': '%(message)s'}
                               ),
-            level='DEBUG',
+            level=Options.log_level,
             filename=Options.file_name,
             )
 old_factory = getLogRecordFactory()

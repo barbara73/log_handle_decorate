@@ -13,6 +13,10 @@ SynedraExport/
 __pycache__
 __pytest_cache__
 
+# poetry
+poetry.lock
+pyproject.toml
+
 # Pycharm
 .idea
 

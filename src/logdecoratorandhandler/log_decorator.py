@@ -4,7 +4,6 @@ LogDecorator for logging errors of try-except handling.
 from functools import wraps
 
 from .log_handler import Logger
-from .options import Options
 
 
 class LogDecorator:
