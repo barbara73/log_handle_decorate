@@ -3,7 +3,7 @@ LogHandler for chaining log levels.
 """
 import json
 import uuid
-from logging import basicConfig, INFO, getLogger
+from logging import basicConfig, getLogger
 from logging import getLogRecordFactory, setLogRecordFactory
 
 # unique export id

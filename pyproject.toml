@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "logdecoratorandhandler"
-version = "0.1.6"
+version = "0.2.0"
 description = "Log decorator and handler for logging functions easily"
 authors = ["barbara73 <barbara.jesacher@gmail.com>"]
 license = "MIT"

@@ -2,6 +2,7 @@
 LogDecorator for logging errors of try-except handling.
 """
 from functools import wraps
+from time import time
 
 from .log_handler import Logger
 
@@ -26,6 +27,23 @@ class LogDecorator:
 
         return decorated
 
+
+class TimeDecorator:
+    """
+    Class decorator for logging performance.
+    """
+
+    def __call__(self, fn):
+        @wraps(fn)
+        def decorated(*args, **kwargs):
+            start = time()
+            result = fn(*args, **kwargs)
+            end = time()
+            time_difference = round(end - start, 4)
+            print(f'{fn.__name__} - time used: {time_difference} seconds')
+            return result
+
+        return decorated
 
 #
 # def exception_handler(log: Logger):
