@@ -40,31 +40,7 @@ class TimeDecorator:
             result = fn(*args, **kwargs)
             end = time()
             time_difference = round(end - start, 4)
-            print(f'{fn.__name__} - time used: {time_difference} seconds')
+            print(f'{fn.__name__} -->     {time_difference} seconds')
             return result
 
         return decorated
-
-#
-# def exception_handler(log: Logger):
-#     def decorator(func):
-#         @wraps(func)
-#         def wrapper(*args, **kwargs):  # type: ignore
-#             try:
-#                 response = func(*args, **kwargs)
-#             except es_exception.SerializationError:
-#                 log.critical("serialization error!")
-#                 raise
-#             except es_exception.ConnectionError:
-#                 log.critical("connection error!", extra={"update_func_name": func.__name__})
-#                 raise
-#             except es_exception.RequestError:
-#                 log.critical("request error!")
-#                 raise
-#             except Exception as err:
-#                 log.critical(f"uncaught error! :{err}")
-#                 raise
-#
-#             return response
-#         return wrapper
-#     return decorator

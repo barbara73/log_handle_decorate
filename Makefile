@@ -13,6 +13,8 @@ install:
 	@$(MAKE) setup-poetry
 	@$(MAKE) setup-environment-variables
 	@$(MAKE) setup-git
+	@$(MAKE) install-test
+
 
 install-poetry:
 	@echo "Installing poetry..."
@@ -38,6 +40,9 @@ setup-git:
 		git config --local commit.gpgsign true; \
 		git config --local user.signingkey ${GPG_KEY_ID}; \
 	fi
+
+install-test:
+	@pip install pdoc pytest pytest-cov
 
 
 test:
@@ -81,3 +86,6 @@ publish:
 		poetry publish --build --username "__token__" --password ${PYPI_API_TOKEN}; \
 		echo "Published!"; \
 	fi
+
+clean:
+	@rm -rf .pytest_cache .coverage .pytest_cache coverage.xml
